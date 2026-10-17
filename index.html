@@ -4,24 +4,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Raghav Deshpande | Theoretical Physics</title>
-  <meta name="description" content="Academic website of Raghav Deshpande, physics student.">
+  <meta name="description" content="Academic website of Raghav Deshpande, physics student at IISER Bhopal.">
+
+  <meta name="theme-color" content="#0b0d10">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --ink: #202c3a;
-      --muted: #687586;
-      --accent: #315c78;
-      --line: #e5e9ed;
-      --paper: #fcfcfa;
+      --ink: #e8edf3;
+      --muted: #a0adbd;
+      --accent: #4a9add;
+      --line: #29313b;
+      --paper: #0b0d10;
+      --surface: #11151b;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 30px;
+    }
 
     body {
       margin: 0;
@@ -29,16 +39,33 @@
       color: var(--ink);
       font-family: "DM Sans", sans-serif;
       line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: #315c78;
+      color: #ffffff;
+    }
+
+    a {
+      color: var(--accent);
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: #79baff;
     }
 
     .container {
-      max-width: 850px;
+      max-width: 1000px;
       width: 88%;
-      margin: auto;
+      margin: 0 auto;
     }
 
+    /* Navigation */
+
     header {
-      padding: 26px 0;
+      padding: 18px 0;
       border-bottom: 1px solid var(--line);
     }
 
@@ -53,10 +80,16 @@
     .brand {
       color: var(--ink);
       text-decoration: none;
-      font-weight: 600;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 21px;
+      font-weight: 500;
     }
 
-    .links { display: flex; gap: 22px; flex-wrap: wrap; }
+    .links {
+      display: flex;
+      gap: 26px;
+      flex-wrap: wrap;
+    }
 
     .links a {
       color: var(--muted);
@@ -64,16 +97,23 @@
       text-decoration: none;
     }
 
-    a:hover { color: var(--accent); }
+    .links a:hover {
+      color: var(--accent);
+    }
 
-    main { padding: 82px 0 70px; }
+    /* Main introduction */
+
+    main {
+      padding: 76px 0 65px;
+    }
 
     .eyebrow {
       color: var(--accent);
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 2.5px;
       font-size: 12px;
       font-weight: 600;
+      margin-bottom: 12px;
     }
 
     h1, h2 {
@@ -83,84 +123,227 @@
     }
 
     h1 {
-      font-size: clamp(40px, 7vw, 64px);
-      margin: 14px 0;
-      letter-spacing: -1.5px;
+      font-size: clamp(40px, 7vw, 62px);
+      margin: 10px 0 18px;
+      letter-spacing: -1.4px;
     }
 
     .intro {
       color: var(--muted);
-      font-size: 18px;
+      font-size: 17px;
       max-width: 650px;
+      line-height: 1.8;
+      margin: 0;
     }
 
-    .actions { margin-top: 26px; }
+    .actions {
+      margin-top: 26px;
+      margin-bottom: 38px;
+    }
 
     .actions a {
       display: inline-block;
       margin: 0 10px 10px 0;
-      padding: 9px 17px;
-      border: 1px solid var(--line);
+      padding: 9px 18px;
+      border: 1px solid #46515e;
       border-radius: 4px;
       text-decoration: none;
       color: var(--ink);
       font-size: 14px;
+      transition: background 0.2s ease,
+                  border-color 0.2s ease,
+                  color 0.2s ease;
     }
 
     .actions a.primary {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: white;
+      background: #246ba5;
+      border-color: #246ba5;
+      color: #ffffff;
     }
+
+    .actions a.primary:hover {
+      background: #3286c8;
+      border-color: #3286c8;
+    }
+
+    .actions a:not(.primary):hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Content sections */
 
     section {
       padding: 30px 0;
       border-top: 1px solid var(--line);
     }
 
-    h2 { font-size: 29px; margin: 0 0 14px; }
+    h2 {
+      font-size: 29px;
+      margin: 0 0 12px;
+    }
 
-    .muted { color: var(--muted); }
+    .muted {
+      color: var(--muted);
+    }
+
+    section > p {
+      max-width: 650px;
+      margin-top: 8px;
+    }
+
+    /* Research interests */
 
     .interest-list {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
-      margin-top: 20px;
+      margin-top: 18px;
     }
 
     .interest-list span {
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      padding: 6px 12px;
+      border: 1px solid #344454;
+      border-radius: 30px;
+      padding: 5px 14px;
       font-size: 13px;
+      color: #d1dce8;
+      background: rgba(74, 154, 221, 0.035);
+      transition: border-color 0.2s ease,
+                  background 0.2s ease;
     }
 
-    .entry { margin: 20px 0; }
+    .interest-list span:hover {
+      border-color: var(--accent);
+      background: rgba(74, 154, 221, 0.1);
+    }
 
-    .entry h3 { margin: 0; font-size: 16px; }
+    /* Projects and writing */
 
-    .entry p { margin: 5px 0; color: var(--muted); }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 20px;
+    }
+
+    .entry {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      padding: 5px 0;
+    }
+
+    .entry-icon {
+      color: var(--accent);
+      font-size: 23px;
+      line-height: 1.5;
+      min-width: 27px;
+    }
+
+    .entry h3 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 19px;
+      font-weight: 500;
+      margin: 0 0 5px;
+    }
+
+    .entry p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* Contact */
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 18px;
+      margin-top: 12px;
+    }
+
+    .contact-links a {
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    /* Footer */
 
     footer {
       border-top: 1px solid var(--line);
-      padding: 25px 0 40px;
-      color: var(--muted);
-      font-size: 13px;
+      padding: 22px 0 35px;
+      color: #7e8b9b;
+      font-size: 12px;
     }
 
-    @media (max-width: 560px) {
-      .links { gap: 13px; }
-      main { padding-top: 55px; }
+    /* Mobile layout */
+
+    @media (max-width: 600px) {
+      .container {
+        width: 90%;
+      }
+
+      header {
+        padding: 16px 0;
+      }
+
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .links {
+        gap: 18px;
+      }
+
+      main {
+        padding-top: 48px;
+      }
+
+      h1 {
+        letter-spacing: -0.8px;
+      }
+
+      .intro {
+        font-size: 16px;
+      }
+
+      h2 {
+        font-size: 26px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      section {
+        padding: 25px 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition: none !important;
+      }
     }
   </style>
 </head>
 
 <body>
+
   <header>
     <div class="container">
       <nav>
-        <a class="brand" href="#">Your Name</a>
+        <a class="brand" href="#">Raghav Deshpande</a>
+
         <div class="links">
           <a href="#about">About</a>
           <a href="#research">Research</a>
@@ -172,8 +355,11 @@
   </header>
 
   <main class="container">
+
     <p class="eyebrow">Physics · Research · Writing</p>
-    <h1>Your Name</h1>
+
+    <h1>Raghav Deshpande</h1>
+
     <p class="intro">
       Undergraduate physics student at IISER Bhopal,
       interested in theoretical physics, quantum field theory,
@@ -187,6 +373,7 @@
 
     <section id="about">
       <h2>About</h2>
+
       <p>
         I am a physics student interested in understanding
         fundamental questions through mathematical physics.
@@ -197,9 +384,11 @@
 
     <section id="research">
       <h2>Research interests</h2>
+
       <p class="muted">
         Topics I am studying and hope to explore further.
       </p>
+
       <div class="interest-list">
         <span>Quantum field theory</span>
         <span>Scattering amplitudes</span>
@@ -210,45 +399,65 @@
     </section>
 
     <section id="projects">
-      <h2>Projects & writing</h2>
-      <div class="entry">
-        <h3>Physics notes</h3>
-        <p>
-          Expository notes, mathematical derivations and
-          explanations of topics in theoretical physics.
-        </p>
-      </div>
-      <div class="entry">
-        <h3>Projects and talks</h3>
-        <p>
-          A collection of academic projects, computational
-          work and presentations.
-        </p>
+      <h2>Projects &amp; writing</h2>
+
+      <div class="project-grid">
+
+        <div class="entry">
+          <div class="entry-icon" aria-hidden="true">▤</div>
+          <div>
+            <h3>Physics notes</h3>
+            <p>
+              Expository notes, mathematical derivations and
+              explanations of topics in theoretical physics.
+            </p>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-icon" aria-hidden="true">⌘</div>
+          <div>
+            <h3>Projects and talks</h3>
+            <p>
+              A collection of academic projects, computational
+              work and presentations.
+            </p>
+          </div>
+        </div>
+
       </div>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
+
       <p class="muted">
         For academic correspondence, you can reach me at:
       </p>
-      <p><a href="mailto:raghavd23@iiserb.ac.in">
-        raghavd23@iiserb.ac.in
-      </a></p>
-      <p>
+
+      <div class="contact-links">
+        <a href="mailto:raghavd23@iiserb.ac.in">
+          ✉ &nbsp; raghavd23@iiserb.ac.in
+        </a>
+
         <a href="https://github.com/YOUR-USERNAME">
           GitHub
         </a>
-        &nbsp; · &nbsp;
-        <a href="cv.pdf">Curriculum vitae (PDF)</a>
-      </p>
+
+        <a href="cv.pdf">
+          Curriculum vitae (PDF)
+        </a>
+      </div>
     </section>
+
   </main>
 
   <footer>
     <div class="container">
-      © 2026 Your Name · Personal academic website
+      © 2026 Raghav Deshpande · Personal academic website
     </div>
   </footer>
+
 </body>
 </html>
+
