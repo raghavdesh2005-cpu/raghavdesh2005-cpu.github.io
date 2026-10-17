@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Name | Theoretical Physics</title>
+  <meta name="description" content="Academic website of Your Name, physics student.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #202c3a;
+      --muted: #687586;
+      --accent: #315c78;
+      --line: #e5e9ed;
+      --paper: #fcfcfa;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.8;
+    }
+
+    .container {
+      max-width: 850px;
+      width: 88%;
+      margin: auto;
+    }
+
+    header {
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .links { display: flex; gap: 22px; flex-wrap: wrap; }
+
+    .links a {
+      color: var(--muted);
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    a:hover { color: var(--accent); }
+
+    main { padding: 82px 0 70px; }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    h1, h2 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 500;
+      line-height: 1.25;
+    }
+
+    h1 {
+      font-size: clamp(40px, 7vw, 64px);
+      margin: 14px 0;
+      letter-spacing: -1.5px;
+    }
+
+    .intro {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 650px;
+    }
+
+    .actions { margin-top: 26px; }
+
+    .actions a {
+      display: inline-block;
+      margin: 0 10px 10px 0;
+      padding: 9px 17px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 14px;
+    }
+
+    .actions a.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+
+    section {
+      padding: 30px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    h2 { font-size: 29px; margin: 0 0 14px; }
+
+    .muted { color: var(--muted); }
+
+    .interest-list {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .interest-list span {
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 6px 12px;
+      font-size: 13px;
+    }
+
+    .entry { margin: 20px 0; }
+
+    .entry h3 { margin: 0; font-size: 16px; }
+
+    .entry p { margin: 5px 0; color: var(--muted); }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 25px 0 40px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 560px) {
+      .links { gap: 13px; }
+      main { padding-top: 55px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="brand" href="#">Your Name</a>
+        <div class="links">
+          <a href="#about">About</a>
+          <a href="#research">Research</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <p class="eyebrow">Physics · Research · Writing</p>
+    <h1>Your Name</h1>
+    <p class="intro">
+      Undergraduate physics student at IISER Bhopal,
+      interested in theoretical physics, quantum field theory,
+      scattering amplitudes and gravitation.
+    </p>
+
+    <div class="actions">
+      <a class="primary" href="#research">Research interests</a>
+      <a href="#contact">Get in touch</a>
+    </div>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        I am a physics student interested in understanding
+        fundamental questions through mathematical physics.
+        This website collects information about my academic
+        interests, projects, talks and physics notes.
+      </p>
+    </section>
+
+    <section id="research">
+      <h2>Research interests</h2>
+      <p class="muted">
+        Topics I am studying and hope to explore further.
+      </p>
+      <div class="interest-list">
+        <span>Quantum field theory</span>
+        <span>Scattering amplitudes</span>
+        <span>Classical gravity</span>
+        <span>Black-hole physics</span>
+        <span>Effective field theory</span>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects & writing</h2>
+      <div class="entry">
+        <h3>Physics notes</h3>
+        <p>
+          Expository notes, mathematical derivations and
+          explanations of topics in theoretical physics.
+        </p>
+      </div>
+      <div class="entry">
+        <h3>Projects and talks</h3>
+        <p>
+          A collection of academic projects, computational
+          work and presentations.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="muted">
+        For academic correspondence, you can reach me at:
+      </p>
+      <p><a href="mailto:your-email@example.com">
+        your-email@example.com
+      </a></p>
+      <p>
+        <a href="https://github.com/YOUR-USERNAME">
+          GitHub
+        </a>
+        &nbsp; · &nbsp;
+        <a href="cv.pdf">Curriculum vitae (PDF)</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Your Name · Personal academic website
+    </div>
+  </footer>
+</body>
+</html>
