@@ -1,461 +1,388 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183c35">
+  <meta name="description"
+        content="Raghav Deshpande, physics student at IISER Bhopal. Research interests include scattering amplitudes, quantum field theory and classical gravity.">
 
   <title>Raghav Deshpande | Theoretical Physics</title>
-  <meta name="description" content="Academic website of Raghav Deshpande, physics student at IISER Bhopal.">
-
-  <meta name="theme-color" content="#0b0d10">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap"
+        rel="stylesheet">
 
   <style>
     :root {
-      --ink: #e8edf3;
-      --muted: #a0adbd;
-      --accent: #4a9add;
-      --line: #29313b;
-      --paper: #0b0d10;
-      --surface: #11151b;
+      --forest: #183c35;
+      --ivory: #faf8f2;
+      --ink: #202f2a;
+      --muted: #52625a;
+      --rust: #99492d;
+      --line: #d8dbcf;
+      --light: #f7f5ec;
+      --sage: #c5d6c9;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 30px;
+      scroll-padding-top: 2rem;
     }
 
     body {
       margin: 0;
-      background: var(--paper);
       color: var(--ink);
-      font-family: "DM Sans", sans-serif;
-      line-height: 1.8;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    ::selection {
-      background: #315c78;
-      color: #ffffff;
+      background: var(--ivory);
+      font: 1rem/1.75 var(--sans);
     }
 
     a {
-      color: var(--accent);
-      transition: color 0.2s ease;
+      color: var(--rust);
+      text-underline-offset: 0.22em;
+      text-decoration-thickness: 1px;
     }
 
-    a:hover {
-      color: #79baff;
+    a:hover { text-decoration-thickness: 2px; }
+
+    :focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 4px;
     }
 
-    .container {
-      max-width: 1000px;
-      width: 88%;
-      margin: 0 auto;
+    .skip-link {
+      position: fixed;
+      top: 0.75rem;
+      left: 0.75rem;
+      z-index: 2;
+      padding: 0.4rem 0.8rem;
+      color: var(--forest);
+      background: white;
+      transform: translateY(-160%);
     }
 
-    /* Navigation */
+    .skip-link:focus { transform: translateY(0); }
 
-    header {
-      padding: 18px 0;
-      border-bottom: 1px solid var(--line);
+    .layout {
+      display: grid;
+      grid-template-columns: clamp(16rem, 26vw, 22rem) minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    /* The profile stays in view while the main column scrolls. */
+    .sidebar {
+      color: var(--light);
+      background: var(--forest);
+    }
+
+    .profile {
+      position: sticky;
+      top: 0;
+      max-height: 100vh;
+      overflow-y: auto;
+      padding: clamp(2rem, 5vw, 5rem) clamp(1.5rem, 3.5vw, 3.75rem);
+    }
+
+    .name {
+      margin: 0;
+      font: 500 clamp(2.4rem, 3.5vw, 3.6rem)/1.12 var(--serif);
+      letter-spacing: -0.045em;
+    }
+
+    .affiliation {
+      margin: 1.25rem 0 0;
+      color: var(--sage);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .affiliation a {
+      color: inherit;
+      text-decoration-color: #779b89;
     }
 
     nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
+      display: grid;
+      gap: 0.3rem;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #54736a;
     }
 
-    .brand {
-      color: var(--ink);
-      text-decoration: none;
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 21px;
-      font-weight: 500;
-    }
-
-    .links {
-      display: flex;
-      gap: 26px;
-      flex-wrap: wrap;
-    }
-
-    .links a {
-      color: var(--muted);
-      font-size: 14px;
+    nav a {
+      width: fit-content;
+      padding: 0.25rem 0;
+      color: var(--light);
       text-decoration: none;
     }
 
-    .links a:hover {
-      color: var(--accent);
+    nav a:hover,
+    nav a:focus-visible {
+      text-decoration: underline;
+      text-underline-offset: 0.35em;
     }
-
-    /* Main introduction */
 
     main {
-      padding: 76px 0 65px;
+      width: min(100%, 58rem);
+      margin-inline: auto;
+      padding: clamp(2.5rem, 6vw, 6rem) clamp(1.5rem, 6vw, 6rem) 2rem;
     }
-
-    .eyebrow {
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-
-    h1, h2 {
-      font-family: "Playfair Display", Georgia, serif;
-      font-weight: 500;
-      line-height: 1.25;
-    }
-
-    h1 {
-      font-size: clamp(40px, 7vw, 62px);
-      margin: 10px 0 18px;
-      letter-spacing: -1.4px;
-    }
-
-    .intro {
-      color: var(--muted);
-      font-size: 17px;
-      max-width: 650px;
-      line-height: 1.8;
-      margin: 0;
-    }
-
-    .actions {
-      margin-top: 26px;
-      margin-bottom: 38px;
-    }
-
-    .actions a {
-      display: inline-block;
-      margin: 0 10px 10px 0;
-      padding: 9px 18px;
-      border: 1px solid #46515e;
-      border-radius: 4px;
-      text-decoration: none;
-      color: var(--ink);
-      font-size: 14px;
-      transition: background 0.2s ease,
-                  border-color 0.2s ease,
-                  color 0.2s ease;
-    }
-
-    .actions a.primary {
-      background: #246ba5;
-      border-color: #246ba5;
-      color: #ffffff;
-    }
-
-    .actions a.primary:hover {
-      background: #3286c8;
-      border-color: #3286c8;
-    }
-
-    .actions a:not(.primary):hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* Content sections */
 
     section {
-      padding: 30px 0;
-      border-top: 1px solid var(--line);
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    section:first-child { padding-top: 0; }
+
+    h2, h3 {
+      margin: 0;
+      color: var(--forest);
+      font-family: var(--serif);
+      font-weight: 500;
+      line-height: 1.2;
     }
 
     h2 {
-      font-size: 29px;
-      margin: 0 0 12px;
+      margin-bottom: 1.1rem;
+      font-size: clamp(1.75rem, 3vw, 2.35rem);
+      letter-spacing: -0.035em;
     }
 
-    .muted {
-      color: var(--muted);
+    .intro-heading {
+      max-width: 16ch;
+      font-size: clamp(2.7rem, 5vw, 4.7rem);
+      line-height: 1.06;
+      letter-spacing: -0.055em;
     }
 
-    section > p {
-      max-width: 650px;
-      margin-top: 8px;
+    p { margin: 0.85rem 0 0; }
+
+    .lead {
+      margin-top: 1.5rem;
+      font-size: clamp(1.05rem, 1.5vw, 1.2rem);
     }
 
-    /* Research interests */
-
-    .interest-list {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 18px;
+    .question {
+      margin: 1.2rem 0;
+      padding-left: 1.2rem;
+      border-left: 3px solid var(--rust);
+      color: var(--forest);
+      font: italic 500 clamp(1.25rem, 2vw, 1.6rem)/1.5 var(--serif);
     }
 
-    .interest-list span {
-      border: 1px solid #344454;
-      border-radius: 30px;
-      padding: 5px 14px;
-      font-size: 13px;
-      color: #d1dce8;
-      background: rgba(74, 154, 221, 0.035);
-      transition: border-color 0.2s ease,
-                  background 0.2s ease;
+    details {
+      margin-top: 1.4rem;
+      border-block: 1px solid var(--line);
     }
 
-    .interest-list span:hover {
-      border-color: var(--accent);
-      background: rgba(74, 154, 221, 0.1);
+    summary {
+      padding: 0.8rem 0;
+      color: var(--rust);
+      font-weight: 600;
+      cursor: pointer;
     }
 
-    /* Projects and writing */
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 20px;
-    }
+    details[open] { padding-bottom: 1rem; }
+    details p { margin-top: 0.3rem; }
 
     .entry {
-      display: flex;
-      align-items: flex-start;
-      gap: 15px;
-      padding: 5px 0;
+      display: grid;
+      grid-template-columns: 7rem minmax(0, 1fr);
+      gap: 1rem;
+      padding: 1.1rem 0;
     }
 
-    .entry-icon {
-      color: var(--accent);
-      font-size: 23px;
-      line-height: 1.5;
-      min-width: 27px;
+    .entry + .entry { border-top: 1px solid var(--line); }
+
+    .entry-label {
+      margin: 0.25rem 0 0;
+      color: var(--rust);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
     }
 
-    .entry h3 {
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 19px;
-      font-weight: 500;
-      margin: 0 0 5px;
-    }
+    h3 { font-size: 1.35rem; }
 
-    .entry p {
-      margin: 0;
+    .entry p:last-child {
+      margin-top: 0.45rem;
       color: var(--muted);
-      font-size: 14px;
-      line-height: 1.8;
     }
-
-    /* Contact */
 
     .contact-links {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
-      gap: 10px 18px;
-      margin-top: 12px;
+      gap: 0.5rem 1.5rem;
+      overflow-wrap: anywhere;
     }
-
-    .contact-links a {
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    /* Footer */
 
     footer {
-      border-top: 1px solid var(--line);
-      padding: 22px 0 35px;
-      color: #7e8b9b;
-      font-size: 12px;
+      padding-top: 1.4rem;
+      color: var(--muted);
+      font-size: 0.8rem;
     }
 
-    /* Mobile layout */
+    @media (max-width: 760px) {
+      .layout { display: block; }
 
-    @media (max-width: 600px) {
-      .container {
-        width: 90%;
+      .profile {
+        position: static;
+        max-height: none;
+        padding: 1.75rem 1.5rem 1.15rem;
       }
 
-      header {
-        padding: 16px 0;
-      }
+      .name { font-size: 2.2rem; }
+      .affiliation { margin-top: 0.65rem; }
 
       nav {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.15rem 1.2rem;
+        margin-top: 1.15rem;
+        padding-top: 0.7rem;
+        font-size: 0.9rem;
       }
 
-      .links {
-        gap: 18px;
-      }
+      main { padding-top: 2.75rem; }
+      section { padding-block: 2rem; }
+    }
 
-      main {
-        padding-top: 48px;
-      }
-
-      h1 {
-        letter-spacing: -0.8px;
-      }
-
-      .intro {
-        font-size: 16px;
-      }
-
-      h2 {
-        font-size: 26px;
-      }
-
-      .project-grid {
+    @media (max-width: 480px) {
+      .entry {
         grid-template-columns: 1fr;
-        gap: 15px;
-      }
-
-      section {
-        padding: 25px 0;
+        gap: 0.3rem;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *, *::before, *::after {
-        transition: none !important;
-      }
+      html { scroll-behavior: auto; }
     }
   </style>
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header>
-    <div class="container">
-      <nav>
-        <a class="brand" href="#">Raghav Deshpande</a>
+  <div class="layout">
+    <header class="sidebar">
+      <div class="profile">
+        <h1 class="name">Raghav Deshpande</h1>
 
-        <div class="links">
-          <a href="#about">About</a>
+        <p class="affiliation">
+          BS–MS student in Physics<br>
+          <a href="https://www.iiserb.ac.in/">IISER Bhopal</a>
+        </p>
+
+        <nav aria-label="Main navigation">
+          <a href="#about">About me</a>
           <a href="#research">Research</a>
-          <a href="#projects">Projects</a>
+          <a href="#projects">Projects &amp; writing</a>
           <a href="#contact">Contact</a>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-
-    <p class="eyebrow">Physics · Research · Writing</p>
-
-    <h1>Raghav Deshpande</h1>
-
-    <p class="intro">
-      Undergraduate physics student at IISER Bhopal,
-      interested in theoretical physics, quantum field theory,
-      scattering amplitudes and gravitation.
-    </p>
-
-    <div class="actions">
-      <a class="primary" href="#research">Research interests</a>
-      <a href="#contact">Get in touch</a>
-    </div>
-
-    <section id="about">
-      <h2>About</h2>
-
-      <p>
-        Hey, I am Raghav. I am an fourth-year physics student at Indian Institute of Science Education and Research Bhopal (IISERB).
-        My broad areas of interest is quantum field theory and gravitation. These days I am interested in classical limit of observables from scattering amplitudes and classical gravitational scattering.
-      </p>
-    </section>
-
-    <section id="research">
-      <h2>Research interests</h2>
-
-      <p class="muted">
-        Topics I am studying and hope to explore further.
-      </p>
-
-      <div class="interest-list">
-        <span>Quantum field theory</span>
-        <span>Scattering amplitudes</span>
-        <span>Classical gravity</span>
-        <span>Black-hole physics</span>
-        <span>Effective field theory</span>
+        </nav>
       </div>
-    </section>
+    </header>
 
-    <section id="projects">
-      <h2>Projects &amp; writing</h2>
+    <main id="main">
+      <section id="about" aria-labelledby="about-title">
+        <h2 id="about-title" class="intro-heading">
+          Quantum fields and classical gravity
+        </h2>
 
-      <div class="project-grid">
+        <p class="lead">
+          Hi, I’m Raghav. I’m a fourth-year physics student in the
+          BS–MS programme at the Indian Institute of Science Education
+          and Research Bhopal.
+        </p>
 
-        <div class="entry">
-          <div class="entry-icon" aria-hidden="true">▤</div>
+        <p>
+          I work with Arnab Rudra on the classical limit of scattering
+          amplitudes. I’m interested in what quantum field theory can
+          tell us about the motion of two bodies interacting through gravity.
+        </p>
+      </section>
+
+      <section id="research" aria-labelledby="research-title">
+        <h2 id="research-title">Research</h2>
+
+        <p class="question">
+          When two massive bodies fly past each other, how much momentum
+          does each gain or lose?
+        </p>
+
+        <p>
+          In classical mechanics, we can answer this by integrating the
+          force along each trajectory. I study how to extract the same
+          change in momentum, called the impulse, from a quantum
+          scattering amplitude.
+        </p>
+
+        <details>
+          <summary>Technical details of my current project</summary>
+          <p>
+            I use the Kosower–Maybee–O’Connell (KMOC) framework to study
+            the impulse in a weak-field expansion. At second
+            post-Minkowskian order, the observable receives contributions
+            from a one-loop amplitude and a term quadratic in tree
+            amplitudes. I’m interested in how their apparent divergences
+            cancel as ℏ tends to zero, leaving a finite classical impulse.
+          </p>
+        </details>
+      </section>
+
+      <section id="projects" aria-labelledby="projects-title">
+        <h2 id="projects-title">Projects &amp; writing</h2>
+
+        <article class="entry">
+          <p class="entry-label">Current project</p>
           <div>
-            <h3>Physics notes</h3>
+            <h3>Classical gravity from scattering amplitudes</h3>
             <p>
-              Expository notes, mathematical derivations and
-              explanations of topics in theoretical physics.
+              Linear impulse in two-body scattering, with an emphasis
+              on loop amplitudes, unitarity cuts and the classical limit.
             </p>
           </div>
-        </div>
+        </article>
 
-        <div class="entry">
-          <div class="entry-icon" aria-hidden="true">⌘</div>
+        <article class="entry">
+          <p class="entry-label">Physics notes</p>
           <div>
-            <h3>Projects and talks</h3>
+            <h3>From fields to amplitudes</h3>
             <p>
-              A collection of academic projects, computational
-              work and presentations.
+              Worked derivations on Wick contractions, S-matrix elements
+              and the steps that connect correlation functions to
+              scattering amplitudes.
             </p>
+            <!-- Once you upload a PDF, add its link here, for example:
+            <p><a href="notes/wick-contractions.pdf">Read the notes (PDF)</a></p>
+            -->
           </div>
+        </article>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact</h2>
+
+        <div class="contact-links">
+          <a href="mailto:raghavd23@iiserb.ac.in">raghavd23@iiserb.ac.in</a>
+
+          <!-- Replace YOUR-USERNAME and uncomment this link when ready.
+          <a href="https://github.com/YOUR-USERNAME">GitHub</a>
+          -->
+
+          <!-- Upload cv.pdf next to index.html and uncomment this link.
+          <a href="./cv.pdf">Curriculum vitae (PDF)</a>
+          -->
         </div>
+      </section>
 
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-
-      <p class="muted">
-        For academic correspondence, you can reach me at:
-      </p>
-
-      <div class="contact-links">
-        <a href="mailto:raghavd23@iiserb.ac.in">
-          ✉ &nbsp; raghavd23@iiserb.ac.in
-        </a>
-
-        <a href="https://github.com/YOUR-USERNAME">
-          GitHub
-        </a>
-
-        <a href="cv.pdf">
-          Curriculum vitae (PDF)
-        </a>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="container">
-      © 2026 Raghav Deshpande · Personal academic website
-    </div>
-  </footer>
-
+      <footer>© 2026 Raghav Deshpande</footer>
+    </main>
+  </div>
 </body>
 </html>
-
